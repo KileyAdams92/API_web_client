@@ -7,7 +7,7 @@ type Props = Readonly<{
 }>
 
 export function callAPI() {
-  fetch("http://localhost:5000")
+  fetch("http://localhost:3001")
     .then(res => res.json())
     .then(data => console.log(data))
     .catch(error => console.log("ERROR", error))
