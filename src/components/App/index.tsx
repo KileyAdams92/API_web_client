@@ -2,17 +2,19 @@ import React from "react"
 import logo from "../../assets/logo.svg"
 import "./index.css"
 
-type Props = Readonly<{ children?: React.ReactNode }>
+type Props = Readonly<{
+  makeRequest: () => unknown
+}>
 
-function callAPI() {
+export function callAPI() {
   fetch("http://localhost:5000")
     .then(res => res.json())
     .then(data => console.log(data))
     .catch(error => console.log("ERROR", error))
 }
 
-export function App(_: Props) {
-  callAPI()
+export function App({ makeRequest }: Props) {
+  makeRequest()
   return (
     <div className="App">
       <header className="App-header">
