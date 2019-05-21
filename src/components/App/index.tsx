@@ -4,7 +4,15 @@ import "./index.css"
 
 type Props = Readonly<{ children?: React.ReactNode }>
 
+function callAPI() {
+  fetch("http://localhost:5000")
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log("ERROR", error))
+}
+
 export function App(_: Props) {
+  callAPI()
   return (
     <div className="App">
       <header className="App-header">
