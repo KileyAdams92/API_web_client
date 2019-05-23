@@ -3,7 +3,7 @@ import logo from "../../assets/logo.svg"
 import "./index.css"
 
 type Props = Readonly<{
-  makeRequest: () => unknown
+  makeRequest?: () => unknown
 }>
 
 export function callAPI() {
@@ -13,7 +13,7 @@ export function callAPI() {
     .catch(error => console.log("ERROR", error))
 }
 
-export function App({ makeRequest }: Props) {
+export function App({ makeRequest = callAPI }: Props) {
   makeRequest()
   return (
     <div className="App">
